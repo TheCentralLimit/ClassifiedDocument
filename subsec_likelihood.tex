@@ -12,7 +12,7 @@ where $p_{smooth}$ is the smoothing prior, defined to be:
 
 \begin{equation}
 \label{smoothing_prior}
-p_{smooth} = \exp{-\int \bigg[\dv[n]{(\ln{r})}{(\ln{x})}\bigg]^2 \hspace{5pt} d{(\ln{x})}}
+p_{smooth} = \exp{-\int \bigg[\dv[n]{(r)}{(x)}\bigg]^2 \hspace{5pt} dx}
 \end{equation}
 
 In theory, $p_{smooth}$ can be any $n^{th}$ derivative. To make our code robust, we define a function that takes n as an argument. The function then calls numpy.polynomial.polyder() to find the $n^{th}$ derivative. Next, we square the $n^{th}$ derivative and integrate it between the minimum and maximum of $x$. Here we choose $n = 3$.

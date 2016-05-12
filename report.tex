@@ -48,20 +48,36 @@ The detection of gravitational waves (GW) in Feburary(ref) opened a new era of a
 M_{c}=\frac{(m_{1}m_{2})^{3/5}}{(m_{1}+m_{2})}
 \end{equation}
 
-This report is organized as follows. Section 2 describes the developement of the chirp mass distribution and a electromagnetic followup classifier based on the data. Section 3 will discuss the results, and Section 4 will state our conclusions.
+Figure \ref{fig:chirp} is the full data set in terms of chirp mass. The electromagnetic counterparts events are seperated from the other events by color. This report is organized as follows. Section \ref{sec:dist} describes the developement of the chirp mass distribution, Section \ref{sec:classifier} descibes a electromagnetic followup classifier based on the data, and Section 4 will state our conclusions.
+\begin{figure}
+\includegraphics[width=\columnwidth]{output/jake/chirp-mass-classes.pdf}
+\caption{This figure shows all the 5000 events' chirp mass. Here the y-axis is a uniform random number between zero and one. The events that have an electromagnetic counterpart are in red, and the events without a electromagnetic counterpart are in blue.}
+\label{fig:chirp}
+\end{figure}
 See Section \ref{sec:discussion} and Appendix \ref{app:example}. Example text citation is \textcite{2012ApJ...759...52D}, or in parenthesis with a page number \parencite[pg 2]{2012ApJ...759...52D}.
 
 
-\section{\ldots}
-\label{sec:more}
+\section{Chirp Mass Distribution}
+\label{sec:dist}
 
 
 
 
 
-\section{Discussion}
-\label{sec:discussion}
+\section{Classifying GW Events that have Electromagnetic Countparts}
+\label{sec:classifier}
+The GW observatory, the Laser Interferometer Gravitational Wave Observatory (LIGO), can provide very rapid mass estimates of candidate GW events. Since most of these detections are mostly binary black holes and electromagnetic followup is extremely expensive, only a few events can be followed up. We have therefore trained a classifier to determine if an event will have a electromagnetic followup. We trained this classifier on the first half of the data. We simply took the mid-way point betweewn the maximum chirp mass for the electromagnetic counterpart group and the other group. This is shown in Figure \ref{fig:half}. This was then used on the whole dataset as shown in Figure \ref{fig:all}.
 
+\begin{figure}
+\includegraphics[width=\columnwidth]{output/jake/classifier_half.pdf}
+\caption{This shows the first half of the data with the same two groups as before. The vertical line indicates the division between the two groups.}
+\label{fig:half}
+\end{figure}
+\begin{figure}
+\includegraphics[width=\columnwidth]{output/jake/classifier_all.pdf}
+\caption{This shows the full set of the data with the dividing line trained by half the data.}
+\label{fig:all}
+\end{figure}
 
 
 

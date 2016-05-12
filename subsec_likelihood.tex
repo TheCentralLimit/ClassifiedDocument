@@ -1,0 +1,17 @@
+\subsection{The Likelihood of Fitting Parameters}
+\label{subsec:likelihood}
+
+The likelihood of each fitting parameter is:
+
+\begin{equation}
+\label{likelihood}
+P(\{d\}|\lambda) = \frac{1}{n!}\prod_{k} E(x)r(x_k) p_{smooth}\exp{-\int E(x)r(x_k)dx}
+\end{equation}
+
+where $p_{smooth}$ is the smoothing prior, defined to be:
+
+\begin{equation}
+\label{smoothing_prior}
+p_{smooth} = \exp{-\int \bigg[\dv[3]{(\ln{r})}{(\ln{x})}\bigg]^2 \hspace{5pt} d{(\ln{x})}}
+\end{equation}
+

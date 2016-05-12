@@ -39,7 +39,10 @@
 
 \end{abstract}
 
-
+%%%%%%%%%%%%%%%%
+% INTRO
+% Everyone
+%%%%%%%%%%%%%%%%
 \section{Introduction}
 \label{sec:intro}
 The detection of gravitational waves (GW) in Feburary(ref) opened a new era of astronomy; however, it is only in sync with electromagnetic astronomy that the most physics can be discovered. Electromagnetic counterparts are expected from binary sources involving matter i.e. neutron star-neutron star and neutron star-black hole. Because of this, GW detectors will work in conjunction with electromagnetic telescopes to observe a GW source. Some of these will yield weak, nearly isotropic electromagnetic counterparts and others will not. GW detectors will identify sources characterized by its chirp mass:
@@ -57,33 +60,31 @@ Figure \ref{fig:chirp} is the full data set in terms of chirp mass. The electrom
 See Section \ref{sec:discussion} and Appendix \ref{app:example}. Example text citation is \textcite{2012ApJ...759...52D}, or in parenthesis with a page number \parencite[pg 2]{2012ApJ...759...52D}.
 
 
+%%%%%%%%%%%%%%%%
+% QUESTION 1
+% Dan & Chi
+%%%%%%%%%%%%%%%%
 \section{Chirp Mass Distribution}
 \label{sec:dist}
 
+\input{subsec_weighted_histogram} % Q1.1, Dan ?
+\input{subsec_likelihood} % Q1.2, Chi
+\input{subsec_fitting} % Q1.3, Chi
 
 
 
+%%%%%%%%%%%%%%%%
+% QUESTION 2
+% Jake
+%%%%%%%%%%%%%%%%
 
 \section{Classifying GW Events that have Electromagnetic Countparts}
 \label{sec:classifier}
-The GW observatory, the Laser Interferometer Gravitational Wave Observatory (LIGO), can provide very rapid mass estimates of candidate GW events. Since most of these detections are mostly binary black holes and electromagnetic followup is extremely expensive, only a few events can be followed up. We have therefore trained a classifier to determine if an event will have a electromagnetic followup. We trained this classifier on the first half of the data. We simply took the mid-way point betweewn the maximum chirp mass for the electromagnetic counterpart group and the other group. This is shown in Figure \ref{fig:half}. This was then used on the whole dataset as shown in Figure \ref{fig:all}.
-
-\begin{figure}
-\includegraphics[width=\columnwidth]{output/jake/classifier_half.pdf}
-\caption{This shows the first half of the data with the same two groups as before. The vertical line indicates the division between the two groups.}
-\label{fig:half}
-\end{figure}
-\begin{figure}
-\includegraphics[width=\columnwidth]{output/jake/classifier_all.pdf}
-\caption{This shows the full set of the data with the dividing line trained by half the data.}
-\label{fig:all}
-\end{figure}
-
+\input{sec_classification}
 
 
 \section{Conclusions}
 \label{sec:conclusions}
-
 
 
 

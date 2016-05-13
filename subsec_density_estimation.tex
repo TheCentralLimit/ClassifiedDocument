@@ -14,3 +14,11 @@ which corresponds to a volume of
 \end{equation}
 %
 Multiplying this by the time spent observing, $T = \SI{0.6}{yr}$, gives us the spacetime volume $(VT)(\mathcal{M}_c)$.
+
+To obtain uncertainties in our histogram, we take the square root of the sum-of-squares of the weights within that bin, i.e.
+%
+\begin{equation}
+  \sigma_k = \sqrt{\sum_i w_i^2}.
+\end{equation}
+%
+We also overplot a pure power law. To do this, we employ Bayesian linear regression, fitting a straight line to $\log r$ versus $\log \mathcal{M}_c$, and transforming back to linear space.

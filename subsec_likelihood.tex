@@ -1,11 +1,11 @@
 \subsection{The Likelihood of Fitting Parameters}
 \label{subsec:likelihood}
 
-The likelihood of each fitting parameter is:
+The likelihood estimator of each fitting parameter is:
 
 \begin{equation}
 \label{likelihood}
-\ln{[P(\{d\}|\lambda)]} = \frac{-1}{2}\sum_{k} \frac{(r(x_k) - r_{model}(x_k))^2}{\sigma_r^2} \exp{-\int E(x)r(x_k)dx}
+\ln{P(\{d\}|\lambda)} = \frac{-1}{2}\sum_{k} \bigg\{\frac{[r(x_k) -r_{model}(x_k)]^2}{\sigma_r^2} - \ln{\frac{1}{\sigma^2}}\bigg\}
 \end{equation}
 
 where $p_{smooth}$ is the smoothing prior, defined to be:
@@ -16,11 +16,3 @@ p_{smooth} = \exp{-\int \bigg[\dv[n]{(r)}{(x)}\bigg]^2 \hspace{5pt} dx}
 \end{equation}
 
 In theory, $p_{smooth}$ can be any $n^{th}$ derivative. To make our code robust, we define a function that takes n as an argument. The function then calls numpy.polynomial.polyder() to find the $n^{th}$ derivative. Next, we square the $n^{th}$ derivative and integrate it between the minimum and maximum of $x$. Here we choose $n = 3$.
-
-The likelihood estimator is:
-
-\begin{equation}
-\label{likelihood_estimator}
-\ln{P(\{d\}|\lambda)}
-\end{equation}
-

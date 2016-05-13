@@ -11,10 +11,22 @@
 \label{fig:class}
 \end{figure}
 
-The GW observatory, the Laser Interferometer Gravitational Wave Observatory (LIGO), can provide very rapid mass estimates of candidate GW events. Since most of these detections are mostly binary black holes and electromagnetic followup is extremely expensive, only a few events can be followed up. We have therefore trained a classifier to determine if an event will have a electromagnetic followup. We trained this classifier on the first half of the data; we simply took the mid-way point betweewn the maximum chirp mass for the electromagnetic counterpart group and the nonelectromagnetic counterpart group. This can be seen in Figure \ref{fig:class} 
+The GW observatory, the Laser Interferometer Gravitational Wave Observatory (LIGO), can provide very rapid mass estimates of candidate GW events. Since most of these detections are mostly binary black holes and electromagnetic followup is extremely expensive, only a few events can be followed up. We have therefore trained a classifier to determine if an event will have a electromagnetic followup. We trained this classifier on the first half of the data; we simply took the mid-way point betweewn the maximum chirp mass for the electromagnetic counterpart group and the nonelectromagnetic counterpart group. This can be seen in Figure \ref{fig:class}.
 
 \subsection{Method}
-The classifier was constructed simply by taking the minimum chirp mass event of the other group (no electromagnetic counterparts) and the maximum chirp mass event of the electromagnetic counterpart group and finding the distance between those two events. This trained for the first half of the dataset. The result can be seen in Figure \ref{fig:half}; the vertical line represents half the distance between the maximum chirp mass of the electromagnetic counterpart group and the other group.
+The classifier was constructed simply by taking the minimum chirp mass event of the other group (no electromagnetic counterparts) and the maximum chirp mass event of the electromagnetic counterpart group and finding the mid-point between those two events. This classifier was trained from the first half of the dataset. This is visiualized by the filled points in FIgure \ref{fig:class}.
+
+\begin{table}[ht]
+\caption{Chirp masses of the maximum event from the electromagnetic counterpart group, the minimum event from nonelectromagnetic counterpart group, and the vertical dividing line.}
+\centering
+\begin{tabular}{c c c}
+
+\hline\hline
+3.545980 & 3.065123 & 3.378711\\
+\hline\hline
+\end{tabular}
+\label{tab:mass}
+\end{table}
 
 \subsection{Results}
 The classifier correctly classified the two groups without any contamination. More importantly this was also the case when classifying the full data set. As you can see in Figure \ref{fig:all}, the classifier correctly classified the two groups without any contamination. In the Table \ref{tab:chirp} You can see the chirp mass for the maximum electromagnetic counterpart event and the minimum of the other group along with the chirp mass of the line that divides the group. This shows a clear distinction between the two group.

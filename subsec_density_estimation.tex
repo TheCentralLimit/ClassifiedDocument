@@ -1,16 +1,16 @@
 \subsection{Density Estimation}
 
-We use a histogram to estimate the merger rate as a function of $\mathcal{M}_c$ (See Figure \ref{fig:chirp}). Since we are interested in the intrinsic rate, not just those that we detect, we weigh each point by the inverse of the spacetime volume in which we are sensitive to it, $w = 1 / VT$. Binaries with a higher chirp mass are easier detect, so we do not want to count them as heavily. For a given chirp mass, we are sensitive out to a distance of
+We use a histogram to estimate the merger rate as a function of $\mathcal{M}_c$ (See Figure \ref{fig:chirp}). Since we are interested in the intrinsic rate, not just that of detected events, we weigh each point by the inverse of the spacetime volume in which we are sensitive to it, $w = 1 / VT$. Binaries with a higher chirp mass are easier to detect, so we do not want to count them as heavily. For a given chirp mass, we are sensitive out to a distance of
 %
 \begin{equation}
   D(\mathcal{M}_c) =
-%  \SI{200}{\mega\parsec} \( \mathcal{M}_c / \SI{1.2}{\Msun} )^{5/6}
+  \SI{200}{\mega\parsec} \qty( \mathcal{M}_c / \SI{1.2}{\Msun} )^{5/6}
 \end{equation}
 %
 which corresponds to a volume of
 %
 \begin{equation}
-  V(\mathcal{M}_c) = \frac{4}{3} \pi D(\mathcal{M}_c).
+  V(\mathcal{M}_c) = \frac{4}{3} \pi D^3(\mathcal{M}_c).
 \end{equation}
 %
 Multiplying this by the time spent observing, $T = \SI{0.6}{yr}$, gives us the spacetime volume $(VT)(\mathcal{M}_c)$.

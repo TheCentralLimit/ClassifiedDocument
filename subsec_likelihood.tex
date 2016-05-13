@@ -5,14 +5,14 @@ The likelihood estimator of each fitting parameter is:
 
 \begin{equation}
 \label{likelihood}
-\ln{P(\{d\}|\lambda)} = \frac{-1}{2}\sum_{k} \bigg\{\frac{[r(x_k) -r_{model}(x_k)]^2}{\sigma_r^2} - \ln{\frac{1}{\sigma^2}}\bigg\}
+\ln{P(\{d\}|\lambda)} = \frac{-1}{2}\sum_{k} \qty{\frac{[r(x_k) -r_{\rm model}(x_k)]^2}{\sigma_r^2} - \ln{\frac{1}{\sigma^2}}}
 \end{equation}
 
-where $p_{smooth}$ is the smoothing prior, defined to be:
+where $p_{\rm smooth}$ is the smoothing prior, defined to be:
 
 \begin{equation}
 \label{smoothing_prior}
-p_{smooth} = \exp{-\int \bigg[\dv[n]{(r)}{(x)}\bigg]^2 \hspace{5pt} dx}
+p_{\rm smooth} = \exp{-\int \qty[\dv[n]{(r)}{(x)}]^2 \dd{x}}
 \end{equation}
 
-In theory, $p_{smooth}$ can be any $n^{th}$ derivative. To make our code robust, we define a function that takes n as an argument. The function then calls numpy.polynomial.polyder() to find the $n^{th}$ derivative. Next, we square the $n^{th}$ derivative and integrate it between the minimum and maximum of $x$. Here we choose $n = 3$.
+In theory, $p_{\rm smooth}$ can be any $n^{\rm th}$ derivative. To make our code robust, we define a function that takes n as an argument. The function then calls numpy.polynomial.polyder() to find the $n^{\rm th}$ derivative. Next, we square the $n^{\rm th}$ derivative and integrate it between the minimum and maximum of $x$. Here we choose $n = 3$.

@@ -1,13 +1,19 @@
 \subsection{Overview}
 
 \begin{figure}[ht]
-  \includegraphics[width=\columnwidth]{img/chirp-mass-distribution}
+  \includegraphics[width=\columnwidth]{img/output/chirp-mass-distribution}
   \caption{}
   \label{fig:chirp}
 \end{figure}
 
 \begin{figure}[ht]
-  \includegraphics[width=\columnwidth]{img/classifier_comparison}
+  \includegraphics[width=\columnwidth]{img/output/mass-distribution}
+  \caption{}
+  \label{fig:2D}
+\end{figure}
+
+\begin{figure}[ht]
+  \includegraphics[width=\columnwidth]{img/output/classifier_comparison}
   \caption{This shows a selected set of the data. The red points represent the events with electromagnetic counterparts, and the blue points represent the events without electromagnetic counterparts. The filled points represent represent the train dataset, and the open points represent the rest of the data. The vertical line indicates the division between the two groups indicated by the classifier.}
   \label{fig:class}
 \end{figure}
@@ -16,7 +22,7 @@ The GW observatory, the Laser Interferometer Gravitational Wave Observatory (LIG
 
 
 \subsection{Method}
-The classifier was constructed simply by taking the minimum chirp mass event of the other group (no electromagnetic counterparts) and the maximum chirp mass event of the electromagnetic counterpart group and finding the mid-point between those two events. This classifier was trained from the first half of the dataset. This is visiualized by the filled points in FIgure \ref{fig:class}.
+The classifier was constructed simply by taking the minimum chirp mass event of the other group (no electromagnetic counterparts) and the maximum chirp mass event of the electromagnetic counterpart group and finding the mid-point between those two events. This classifier was trained from the first half of the dataset. This is visiualized by the filled points in Figure \ref{fig:class}.
 
 \begin{table}[ht]
 \caption{Chirp masses of the maximum event from the electromagnetic counterpart group, the minimum event from nonelectromagnetic counterpart group, and the vertical dividing line.}
@@ -31,8 +37,8 @@ The classifier was constructed simply by taking the minimum chirp mass event of 
 \end{table}
 
 \subsection{Results}
-The classifier correctly classified the two groups without any contamination. More importantly this was also the case when classifying the full data set. As you can see in Figure \ref{fig:all}, the classifier correctly classified the two groups without any contamination. In the Table \ref{tab:chirp} You can see the chirp mass for the maximum electromagnetic counterpart event and the minimum of the other group along with the chirp mass of the line that divides the group. This shows a clear distinction between the two group.
+The classifier correctly classified the two groups without any contamination. More importantly, this was also the case when classifying the full data set. As you can see in Figure \ref{fig:class}, the classifier correctly classified the two groups without any contamination. In the Table \ref{tab:mass}, you can see numerically that the classifier worked completely. Listed are the chirp mass for the maximum electromagnetic counterpart event and the minimum of the other group along with the chirp mass of the line that divides the group. The classifier shows a clear distinction between the two groups.
 
 
 
-Figure \ref{fig:chirp} shows the rate vs the chirp mass with the dividing line from the classifier overplotted. This correlates to the two hump structure in the graph that represents the two groups (electromagnetic counterparts and others). Figure ... shows a similar correlation. The dividing clearly separates the two groups in  m$_{1}$-m$_{2}$ parameter space.
+Figure \ref{fig:chirp} shows the rate vs the chirp mass with the dividing line from the classifier overplotted. This correlates to the two hump structure in the graph that represents the two groups (electromagnetic counterparts and nonelectromagnetic counterparts). Figure \ref{fig:2D} shows a similar correlation; the dividing clearly separates the two groups in  m$_{1}$-m$_{2}$ parameter space.

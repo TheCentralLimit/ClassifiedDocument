@@ -13,6 +13,11 @@
 \usepackage{setspace}
 \doublespacing
 
+%% Custom Units %%
+\DeclareSIUnit{\parsec}{pc}
+\DeclareSIUnit{\Msun}{M_\odot}
+\DeclareSIUnit{\Lsun}{L_\odot}
+
 \title{
 Searching in the Dark
 \\
@@ -51,7 +56,7 @@ Chasing Magnum Opus
 \section{Chirp Mass Distribution}
 \label{sec:dist}
 
-\input{subsec_weighted_histogram} % Q1.1, Dan ?
+\input{subsec_density_estimation} % Q1.1, Dan
 \input{subsec_likelihood} % Q1.2, Chi
 \input{subsec_fitting} % Q1.3, Chi
 

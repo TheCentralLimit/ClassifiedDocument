@@ -5,7 +5,7 @@ The likelihood of each fitting parameter is:
 
 \begin{equation}
 \label{likelihood}
-P(\{d\}|\lambda) = \frac{p_{smooth}^{-1}}{n!}\prod_{k} E(x)r(x_k) \exp{-\int E(x)r(x_k)dx}
+\ln{[P(\{d\}|\lambda)]} = \frac{-1}{2}\sum_{k} \frac{(r(x_k) - r_{model}(x_k))^2}{\sigma_r^2} \exp{-\int E(x)r(x_k)dx}
 \end{equation}
 
 where $p_{smooth}$ is the smoothing prior, defined to be:

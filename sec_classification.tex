@@ -41,3 +41,11 @@ The classifier correctly classified the two groups without any contamination. Mo
 
 
 Figure \ref{fig:chirp} shows the rate vs the chirp mass with the dividing line from the classifier overplotted. This correlates to the two hump structure in the graph that represents the two groups (EM counterparts and nonEM counterparts). Figure \ref{fig:2D} shows a similar correlation; the dividing clearly separates the two groups in  m$_{1}$-m$_{2}$ parameter space.
+
+\begin{figure}[ht]
+  \includegraphics[width=\columnwidth]{img/classifier-2D.pdf}
+  \caption{This shows the classifier on the whole dataset. The red points represent the events with EM counterparts, and the blue points represent the events without EM counterparts. The dividing line can be seen by the changing of the colored regions.}
+  \label{fig:2dclass}
+\end{figure}
+
+We also created a classifier based on the 2D distributions i.e. m$_1$ vs m$_2$. We use the scikit-learn's SVM.LinearSVC classifier, and we again used half the dataset to train the classifier. The classifier completely classified the whole training set completely without any contamination. The classifier was then used on the whole training set. As shown in Figure \ref{fig:2dclass}, the classifier correctly identifies the two groups completely without any contamination.

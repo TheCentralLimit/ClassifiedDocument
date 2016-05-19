@@ -6,22 +6,47 @@ The model we used is a polynomial of degree 4. Because of the smoothing function
 
 Best fit model is:
 \begin{equation}
+\begin{split}
 \label{MCMC_best_fit}
-\log r(\mathcal{M}_c) = -7.3107 (\log\mathcal{M}_c)^4 + 5.0419 (\log\mathcal{M}_c)^3 + 1.0809 (\log\mathcal{M}_c)^2 + 14.2431 \log\mathcal{M}_c - 4.0667
+r(\mathcal{M}_c) = \sum_{k = 0}^{9}\alpha_k(\log\mathcal{M}_c)^k
+\end{split}
 \end{equation}
+
+Where the coefficients are listed in table \ref{table:coefficients}.
+
+\begin{table}[ht]
+\centering
+\caption{Coefficients from the MCMC fit.}
+\label{table:coefficients}
+
+\begin{tabular}{l|l}
+k & $\alpha_k$\\
+\hline
+\hline
+0 & \num{-1.903e-06}\\
+1 & \num{1.842e-05}\\
+2 & \num{9.999e-01}\\
+3 & \num{1.748e-04}\\
+4 & \num{-2.441e-04}\\
+5 & \num{2.122e-04}\\
+6 & \num{-1.130e-04}\\
+7 & \num{3.470e-05}\\
+8 & \num{-5.416e-06}\\
+9 & \num{3.470e-07}\\
+\end{tabular}
+\end{table}
 
 \begin{figure}[ht]
   \includegraphics[width=\columnwidth]{img/line-MCMC.pdf}
-  \caption{100 randomly chosen fits from the MCMC.}
+  \caption{The cyan line is an example of a fit from MCMC.}
   \label{fig:line_MCMC}
 \end{figure}
 
 \begin{figure}[ht]
   \includegraphics[width=\columnwidth]{img/line-mcmc_err.pdf}
-  \caption{The cyan line is an example of a fit from MCMC.}
-  \label{fig:line_MCMC}
+  \caption{100 randomly chosen fits from the MCMC.}
+  \label{fig:line_MCMC_err}
 \end{figure}
-
 
 \begin{figure}[ht]
   \includegraphics[width=\columnwidth]{img/line-time.pdf}

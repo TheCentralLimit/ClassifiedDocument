@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[DIV=calc, paper=a4, 11pt, twocolumn]{scrartcl}
 
 \usepackage[style=phys,citestyle=authoryear,maxcitenames=2]{biblatex}
 \addbibresource{stats-report.bib}
@@ -7,28 +7,75 @@
 
 \usepackage{amsmath,amssymb,commath,mathabx,mathtools,physics,siunitx}
 \usepackage{aas_macros}
-\usepackage{float,subcaption}
+\usepackage{float,placeins,subcaption}
 \usepackage[hidelinks=true]{hyperref}
+\usepackage[protrusion=true,expansion=true]{microtype} % Better typography
+\usepackage[svgnames]{xcolor} % Enabling colors by their 'svgnames'
+\usepackage{fix-cm}	 % Custom font sizes - used for the initial letter in the document
 
-\usepackage[margin=1in]{geometry}
-\usepackage{setspace}
-\doublespacing
+\usepackage{sectsty} % Enables custom section titles
+\allsectionsfont{\usefont{OT1}{phv}{b}{n}} % Change the font of all section commands
+
+\usepackage{fancyhdr} % Needed to define custom headers/footers
+\pagestyle{fancy} % Enables the custom headers/footers
+\usepackage{lastpage} % Used to determine the number of pages in the document (for "Page X of Total")
+
+
+
+% Headers - all currently empty
+\lhead{}
+\chead{}
+\rhead{}
+
+% Footers
+\lfoot{}
+\cfoot{}
+\rfoot{\footnotesize Page \thepage\ of \pageref{LastPage}} % "Page 1 of 2"
+
+
+\renewcommand{\headrulewidth}{0.0pt} % No header rule
+\renewcommand{\footrulewidth}{0.4pt} % Thin footer rule
+
+\usepackage{lettrine} % Package to accentuate the first letter of the text
+\newcommand{\initial}[1]{ % Defines the command and style for the first letter
+\lettrine[lines=3,lhang=0.3,nindent=0em]{
+\color{DarkRed}
+{\textsf{#1}}}{}}
+
 
 %% Custom Units %%
 \DeclareSIUnit{\parsec}{pc}
 \DeclareSIUnit{\Msun}{M_\odot}
 \DeclareSIUnit{\Lsun}{L_\odot}
 
+
+
+
+
+\usepackage{titling} % Allows custom title configuration
+
+\newcommand{\HorRule}{\color{DarkGoldenrod} \rule{\linewidth}{1pt}} % Defines the gold horizontal rule around the title
+
+\pretitle{\vspace{-30pt} \begin{flushleft} \HorRule \fontsize{40}{40} \usefont{OT1}{phv}{b}{n} \color{DarkRed} \selectfont} % Horizontal rule before the title
+
 \title{
 Searching in the Dark
 \\
 Chasing Magnum Opus
 }
+\posttitle{\par\end{flushleft}\vskip 0.5em} % Whitespace under the title
 
+\preauthor{\begin{flushleft}\large \lineskip 0.5em \usefont{OT1}{phv}{b}{sl} \color{DarkRed}} % Author font configuration
 
 \author{
   Jacob Lange, Chi Nguyen, Daniel Wysocki
 }
+
+
+\postauthor{\footnotesize \usefont{OT1}{phv}{m}{sl} \color{Black} % Configuration for the institution name
+Rochester Institute of Technology % Your institution
+
+\par\end{flushleft}\HorRule} % Horizontal rule after the title
 
 \date{
   Statistical Methods for Astrophysical Sciences (ASTP-611)
@@ -38,18 +85,38 @@ Chasing Magnum Opus
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \begin{document}
 
 \maketitle
 
+\thispagestyle{fancy} % Enabling the custom headers/footers for the first page 
 
 %%%%%%%%%%%%%%%%
 % INTRO
 % Everyone
 %%%%%%%%%%%%%%%%
-\section{Introduction}
+\section*{Introduction}
 \label{sec:intro}
 \input{sec_intro}
+
+%\FloatBarrier
+
 %%%%%%%%%%%%%%%%
 % QUESTION 1
 % Dan & Chi
@@ -61,6 +128,7 @@ Chasing Magnum Opus
 \input{subsec_likelihood} % Q1.2, Chi
 \input{subsec_fitting} % Q1.3, Chi
 
+%\FloatBarrier
 
 
 %%%%%%%%%%%%%%%%
@@ -68,16 +136,12 @@ Chasing Magnum Opus
 % Jake
 %%%%%%%%%%%%%%%%
 
-\section{Classifying GW Events that have Electromagnetic Countparts}
+\section{Classifying GW Events with EM Countparts}
 \label{sec:classifier}
 \input{sec_classification} % Jake
 
 
-%\section{Conclusions}
-%\label{sec:conclusions}
-%\input{sec_conclusions}
-
-
+%\FloatBarrier
 
 
 \printbibliography

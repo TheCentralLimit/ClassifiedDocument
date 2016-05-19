@@ -1,18 +1,28 @@
 \subsection{The Likelihood of Fitting Parameters}
 \label{subsec:likelihood}
 
-The likelihood estimator of each fitting parameter is:
+For our fit, we assume a $9^{\rm th}$ degree polynomial, and use a smoothing prior to prevent over-fitting. We fit this model to the points from the histogram rate, $r(x)$, obtained in \S\ref{sec:density}. The data likelihood is
+%
+\begin{align}
+  \ln p( &\qty{r(x_k)}_k | \lambda ) = \notag
+  \\ &
+ -\frac{1}{2}
+  \sum_k
+  \qty{\frac{[r(x_k) - F_\alpha(x_k) \lambda_\alpha]^2}{\sigma_{r(x_k)}^2}},
+%
+  \label{likelihood}
+\end{align}
+%
+where $F_\alpha(x) = x^\alpha$.
+
+$\ln p_{\rm smooth}$ is the smoothing prior, defined to be:
 
 \begin{equation}
-\label{likelihood}
-\ln{P(\{d\}|\lambda)} = \frac{-1}{2}\sum_{k} \qty{\frac{[r(x_k) -r_{\rm model}(x_k)]^2}{\sigma_r^2}}
-\end{equation}
-
-where $p_{\rm smooth}$ is the smoothing prior, defined to be:
-
-\begin{equation}
-\label{smoothing_prior}
-p_{\rm smooth} = \exp{-\int \qty[\dv[n]{(r)}{(x)}]^2 \dd{x}}
+  \ln p_{\rm smooth}(\lambda) =
+ -\gamma \int_{x_{\min}}^{x_{\max}}
+  \qty[ \dv[n]{F_\alpha(x)}{x} \lambda_\alpha ]^2 \dd{x}
+%
+  \label{smoothing_prior}
 \end{equation}
 
 In theory, $p_{\rm smooth}$ can be any $n^{\rm th}$ derivative. To make our code robust, we define a function that takes n as an argument. The function then calls \texttt{numpy.polynomial.polynomial.polyder()} to find the $n^{\rm th}$ derivative. Next, we square the $n^{\rm th}$ derivative and integrate it between the minimum and maximum of $x$. Here we choose $n = 3$.

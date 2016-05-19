@@ -1,65 +1,62 @@
 \subsection{Overview}
 
-\begin{figure}[ht]
-  \centering
-  \begin{subfigure}[c]{\textwidth}
-    \centering
-    \includegraphics[height=0.4\textheight]{img/chirp-mass-distribution}
-    \caption{}
-    \label{fig:chirp-linear}
-  \end{subfigure}
-
-  \begin{subfigure}[c]{\textwidth}
-    \centering
-    \includegraphics[height=0.4\textheight]{img/chirp-mass-log-distribution}
-    \caption{}
-    \label{fig:chirp-log}
-  \end{subfigure}
-
-  \caption{Estimated rate of compact binary mergers, based on 5000 synthetic observations. Rate is shown in (\subref{fig:chirp-linear}) linear and (\subref{fig:chirp-log}) log scale. Blue line is weighted histogram fit. Red curve is power law fit. Shaded regions are 1-$\sigma$ error bars. Vertical dashed line is boundary between events with counterparts and without.}
-  \label{fig:chirp}
-\end{figure}
-
-\begin{figure}[ht]
-  \includegraphics[width=\columnwidth]{img/mass-distribution}
-  \caption{Boundary between masses in two dimensions. Line is $m_2(m_1, \mathcal{M}_c)$, where $\mathcal{M}_c$ is fixed at the value of the decision boundary from the 1D plot.}
-  \label{fig:2D}
-\end{figure}
-
-\begin{figure}[ht]
-  \includegraphics[width=\columnwidth]{img/classifier_comparison}
-  \caption{This shows a selected set of the data. The red points represent the events with EM counterparts, and the blue points represent the events without EM counterparts. The filled points represent represent the train dataset, and the open points represent the rest of the data. The vertical line indicates the division between the two groups indicated by the classifier.}
+\begin{figure*}[ht]
+  \includegraphics[width=\textwidth]{img/classifier_comparison}
+  \caption{Visualization of 1D classifier performance. Red points have observed EM counterparts, while blue do not. We trained the classifier only on the data with solid points, and obtained a decision boundary shown by the dashed line. The open points are the remaining half of the data, which, as you can see, were correctly classified by this decision boundary.}
   \label{fig:class}
-\end{figure}
+\end{figure*}
 
-The GW observatory, the Laser Interferometer Gravitational Wave Observatory (LIGO), can provide very rapid mass estimates of candidate GW events. Since most of these detections are mostly binary black holes and EM followup is extremely expensive, only a few events can be followed up. We have therefore trained a classifier to determine if an event will have a EM followup. We trained this classifier on the first half of the data; we simply took the mid-way point betweewn the maximum chirp mass for the EM counterpart group and the nonEM counterpart group. This can be seen in Figure \ref{fig:class}.
+\begin{figure*}[ht]
+  \includegraphics[width=\textwidth]{img/mass-distribution}
+  \caption{Decision boundary from 1D classifier trained on $\mathcal{M}_c$, overlayed on the 2D mass distribution. Red points have EM counterparts, while blue do not.}
+  \label{fig:2D}
+\end{figure*}
+
+\begin{figure*}[ht]
+  \includegraphics[width=\textwidth]{img/classifier-2D.pdf}
+  \caption{Results of linear SVM classifier, trained on half of the data set, displayed here to perfectly classify the entire data set. Red points represent events with EM counterparts, and blue points represent the events without. The predictions of the classifier are shown as the yellow and blue shaded regions.}
+  \label{fig:2dclass}
+\end{figure*}
+
+
+
+LIGO can provide very rapid mass estimates of candidate GW events. Since most of these detections are binary black holes, and EM followup is extremely expensive, very few events are expected to have confirmed EM counterparts. We have therefore trained a classifier to determine if an event will have a EM followup. In \S\ref{sec:classifier-method} we discuss the method used, and in \S\ref{sec:classifier-results} we discuss our results.
 
 
 \subsection{Method}
-The classifier was constructed simply by taking the minimum chirp mass event of the nonEM counterpart group plus the maximum chirp mass event of the EM counterpart group and finding the mid-point between those two events. This classifier was trained from the first half of the dataset. This is visiualized by the filled points in Figure \ref{fig:class}.
+\label{sec:classifier-method}
+We trained this classifier on the first half of the data, simply taking the mid-way point in $\mathcal{M}_c$ between the population of events with EM counterparts and without. This is demonstrated in Figure \ref{fig:class}.
 
-\begin{table}[ht]
-\caption{Chirp masses of the maximum event from the EM counterpart group, the minimum event from nonEM counterpart group, and the vertical dividing line, respectively.}
-\centering
-\begin{tabular}{c c c}
-\hline\hline
-3.545980 & 3.065123 & 3.378711\\
-\hline\hline
-\end{tabular}
-\label{tab:mass}
-\end{table}
+We took a slightly different approach for the 2D mass distribution. Here we trained a linear SVM, using \texttt{sklearn.svm.LinearSVC}, with \texttt{C=100}, and the masses transformed into log-space. Again, we performed the training on half of the data, and made correct predictions on the full data set. The results are shown in Figure \ref{fig:2dclass}.
+
 
 \subsection{Results}
-The classifier correctly classified the two groups without any contamination. More importantly, this was also the case when classifying the full data set. As you can see in Figure \ref{fig:class}, the classifier correctly classified the two groups without any contamination. In the Table \ref{tab:mass}, you can see numerically that the classifier worked completely. Listed are the chirp mass for the maximum EM counterpart event and the minimum of the other group along with the chirp mass of the line that divides the group. The classifier shows a clear distinction between the two groups.
+\label{sec:classifier-results}
 
+The classifier correctly separated the two groups with $100\%$ completeness and zero contamination, even when the training was done using only half of the data set. Of course, this is potentially sensitive to precisely \emph{which} half of the data set was used, so one can imagine a likely scenario where this failed.
 
+Looking at Figure \ref{fig:chirp}, you can see that the decision boundary occurs in one of the histogram bins with zero observations. In this sense, it does correlate with structure in the data.
 
-Figure \ref{fig:chirp} shows the rate vs the chirp mass with the dividing line from the classifier overplotted. This correlates to the two hump structure in the graph that represents the two groups (EM counterparts and nonEM counterparts). Figure \ref{fig:2D} shows a similar correlation; the dividing clearly separates the two groups in  m$_{1}$-m$_{2}$ parameter space.
+In Figure \ref{fig:2D}, we have plotted that same decision boundary over the 2D mass distribution. To do this, we had to derive an expression for $m_2(m_1, \mathcal{M}_c)$, which we accomplished using \texttt{Mathematica}. The expression is
+%
+\begin{equation}
+  m_2(m_1, \mathcal{M}_c) =
+  \frac{(2/3)^{1/3} \mathcal{M}_c^5}{X} +
+  \frac{X}{2^{1/3} \cdot 3^{2/3} \cdot m_1^3},
+%
+  \label{eq:m2-m1-Mc}
+\end{equation}
+%
+where
+%
+\begin{equation}
+  X \equiv
+  \qty[
+    9 m_1^7 \mathcal{M}_c^5 +
+    \sqrt{3 m_1^9 \mathcal{M}_c^{10} \qty(27 m_1^5 - 4 \mathcal{M}_c^3)}
+  ]^{1/3}.
+\end{equation}
+%
+As you can see from Figure \ref{fig:2D}, this line corresponds to the division between the events with and without counterparts.
 
-\begin{figure}[ht]
-  \includegraphics[width=\columnwidth]{img/classifier-2D.pdf}
-  \caption{This shows the classifier on the whole dataset. The red points represent the events with EM counterparts, and the blue points represent the events without EM counterparts. The dividing line can be seen by the changing of the colored regions.}
-  \label{fig:2dclass}
-\end{figure}
-
-We also created a classifier based on the 2D distributions i.e. m$_1$ vs m$_2$. We use the scikit-learn's SVM.LinearSVC classifier, and we again used half the dataset to train the classifier. The classifier completely classified the whole training set completely without any contamination. The classifier was then used on the whole training set. As shown in Figure \ref{fig:2dclass}, the classifier correctly identifies the two groups completely without any contamination.
+A similar result is obtained using the linear SVM on the 2D mass distribution directly. The result is shown in Figure \ref{fig:2dclass}.

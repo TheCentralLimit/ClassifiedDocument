@@ -1,8 +1,22 @@
 \subsection{Overview}
 
 \begin{figure}[ht]
-  \includegraphics[width=\columnwidth]{img/chirp-mass-distribution}
-  \caption{Estimated rate of compact binary mergers, based on 5000 synthetic observations. Blue line is weighted histogram fit. Red curve is power law fit. Shaded regions are 1-$\sigma$ error bars. Vertical dashed line is boundary between events with counterparts and without.}
+  \centering
+  \begin{subfigure}[c]{\textwidth}
+    \centering
+    \includegraphics[height=0.4\textheight]{img/chirp-mass-distribution}
+    \caption{}
+    \label{fig:chirp-linear}
+  \end{subfigure}
+
+  \begin{subfigure}[c]{\textwidth}
+    \centering
+    \includegraphics[height=0.4\textheight]{img/chirp-mass-log-distribution}
+    \caption{}
+    \label{fig:chirp-log}
+  \end{subfigure}
+
+  \caption{Estimated rate of compact binary mergers, based on 5000 synthetic observations. Rate is shown in (\subref{fig:chirp-linear}) linear and (\subref{fig:chirp-log}) log scale. Blue line is weighted histogram fit. Red curve is power law fit. Shaded regions are 1-$\sigma$ error bars. Vertical dashed line is boundary between events with counterparts and without.}
   \label{fig:chirp}
 \end{figure}
 

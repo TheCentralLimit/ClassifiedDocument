@@ -19,10 +19,12 @@ Multiplying this by the time spent observing, $T = \SI{0.6}{yr}$, gives us the s
 To obtain uncertainties in our histogram, we take the square root of the sum-of-squares of the weights within that bin, i.e.
 %
 \begin{equation}
-  \sigma_k = \sqrt{\sum_i w_i^2}.
+  \sigma_k = \sqrt{\sum_i w_i^2},
 \end{equation}
 %
-We also overplot a pure power law. To do this, we employ Bayesian linear regression, fitting a straight line to $\log r$ versus $\log \mathcal{M}_c$, and transforming back to linear space. This is also shown in Figure \ref{fig:chirp}.
+which was taken from \textcite{weighted-hist}. This reduces to $\sqrt{N}$ in the case of an unweighted histogram, as $w_i = 1$, so $\sum_i w_i^2 = N$.
+
+We also over-plot a pure power law. To do this, we employ Bayesian linear regression, fitting a straight line to $\log r$ versus $\log \mathcal{M}_c$, and transforming back to linear space. This is also shown in Figure \ref{fig:chirp}.
 
 \begin{figure*}[ht]
   \centering

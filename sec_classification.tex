@@ -20,14 +20,16 @@
 
 
 
-LIGO can provide very rapid mass estimates of candidate GW events. Since most of these detections are binary black holes, and EM followup is extremely expensive, very few events are expected to have confirmed EM counterparts. We have therefore trained a classifier to determine if an event will have a EM followup. In \S\ref{sec:classifier-method} we discuss the method used, and in \S\ref{sec:classifier-results} we discuss our results.
+LIGO can provide very rapid mass estimates of candidate GW events. Since most of these detections are binary black holes, and EM followup is extremely expensive, very few events are expected to have confirmed EM counterparts.
+
+We have trained a classifier to determine if an event will have a EM counterpart. In \S\ref{sec:classifier-method} we discuss the method used, and in \S\ref{sec:classifier-results} we discuss our results.
 
 
 \subsection{Method}
 \label{sec:classifier-method}
 We trained this classifier on the first half of the data, simply taking the mid-way point in $\mathcal{M}_c$ between the population of events with EM counterparts and without. This is demonstrated in Figure \ref{fig:class}.
 
-We took a slightly different approach for the 2D mass distribution. Here we trained a linear SVM, using \texttt{sklearn.svm.LinearSVC}, with \texttt{C=100}, and the masses transformed into log-space. Again, we performed the training on half of the data, and made correct predictions on the full data set. The results are shown in Figure \ref{fig:2dclass}.
+We took a slightly different approach for the 2D mass distribution, as part of the \textbf{500\% extra credit} problem. Here we trained a linear SVM, using \texttt{sklearn.svm.LinearSVC}, with \texttt{C=100}, and the masses transformed into log-space. Again, we performed the training on half of the data, and made correct predictions on the full data set. The results are shown in Figure \ref{fig:2dclass}.
 
 
 \subsection{Results}

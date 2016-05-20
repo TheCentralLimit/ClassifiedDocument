@@ -25,4 +25,4 @@ $\ln p_{\rm smooth}$ is the smoothing prior, defined to be:
   \label{smoothing_prior}
 \end{equation}
 
-In theory, $p_{\rm smooth}$ can be any $n^{\rm th}$ derivative. To make our code robust, we define a function that takes n as an argument. The function then calls \texttt{numpy.polynomial.polynomial.polyder()} to find the $n^{\rm th}$ derivative. Next, we square the $n^{\rm th}$ derivative and integrate it between the minimum and maximum of $x$. Here we choose $n = 3$.
+In theory, $p_{\rm smooth}$ can be any $n^{\rm th}$ derivative. To make our code robust, we define a function that takes n as an argument. The function then calls \texttt{numpy.polynomial.polynomial.polyder()} to find the $n^{\rm th}$ derivative. Next, we square the $n^{\rm th}$ derivative and integrate it between the minimum and maximum of $x$. Here we choose $n = 3$, and let $\gamma = 0.5$.

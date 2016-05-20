@@ -1,18 +1,18 @@
 \subsection{Model fitting}
 \label{subsec:fitting}
-We employed a Markov Chain Monte Carlo (MCMC) script to fit the coefficients of a polynomial model for $r(\mathcal{M}_c)$. The MCMC uses the smoothing prior as defined in \S\ref{subsec:likelihood}. We performed a least squares fit first in order to obtain the initial guess for the coefficients of the model.
+We employed a Markov Chain Monte Carlo (MCMC), using \texttt{emcee} \parencite{2013PASP..125..306F}, to fit the coefficients of a polynomial model for $r(\mathcal{M}_c)$. The MCMC uses the smoothing prior as defined in \S\ref{subsec:likelihood}. We performed a least squares fit first in order to obtain the initial guess for the coefficients of the model.
 
 The model we used is a polynomial of degree 9. Because of the smoothing function, using higher order does not change the shape of the fit in a significant way. The MCMC best fit can be seen in Figure \ref{fig:line_MCMC}. The MCMC walkers and triangle plot are in Figures \ref{fig:MCMC_time} and \ref{fig:MCMC_triangle}.
 
-Best fit model is:
+The best fit model is
+%
 \begin{equation}
-\begin{split}
-\label{MCMC_best_fit}
-r(\mathcal{M}_c) = \sum_{k = 0}^{9}\alpha_k(\log\mathcal{M}_c)^k
-\end{split}
+  r(\mathcal{M}_c) = \sum_{k = 0}^{9}\alpha_k(\log\mathcal{M}_c)^k,
+%
+  \label{MCMC_best_fit}
 \end{equation}
-
-Where the coefficients, $\alpha_k$, are listed in Table \ref{table:coefficients}.
+%
+where the coefficients, $\alpha_k$, are listed in Table \ref{table:coefficients}.
 
 \begin{table}[ht]
 \centering
@@ -44,13 +44,19 @@ Where the coefficients, $\alpha_k$, are listed in Table \ref{table:coefficients}
 
 \begin{figure*}[ht]
   \includegraphics[width=\textwidth]{img/line-mcmc_err.pdf}
-  \caption{100 randomly chosen fits from the MCMC.}
+  \caption{2000 randomly chosen fits from the MCMC.}
   \label{fig:line_MCMC_err}
 \end{figure*}
 
 \begin{figure*}[ht]
-  \includegraphics[width=\textwidth]{img/line-time.pdf}
-  \caption{Visualization of MCMC worker locations over the large number of iterations performed. As you can see, they all converge after around step 2500.}
+  \includegraphics[width=\textwidth]{img/line-time-1.pdf}
+  \caption{Visualization of MCMC worker locations over the large number of iterations performed for coefficients $\lambda_0 $ to $\lambda_4$. }
+  \label{fig:MCMC_time}
+\end{figure*}
+
+\begin{figure*}[ht]
+  \includegraphics[width=\textwidth]{img/line-time-2.pdf}
+  \caption{Visualization of MCMC worker locations over the large number of iterations performed for coefficients $\lambda_5$ to $\lambda_9$.}
   \label{fig:MCMC_time}
 \end{figure*}
 

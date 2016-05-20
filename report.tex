@@ -1,3 +1,16 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Based on Large Colored Title Article
+% LaTeX Template
+% Version 1.1 (25/11/12)
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \documentclass[DIV=calc, paper=a4, 11pt, twocolumn]{scrartcl}
 
 \usepackage[style=phys,citestyle=authoryear,maxcitenames=2]{biblatex}
@@ -59,7 +72,7 @@
 \pretitle{\vspace{-30pt} \begin{flushleft} \HorRule \fontsize{40}{40} \usefont{OT1}{phv}{b}{n} \color{DarkRed} \selectfont} % Horizontal rule before the title
 
 \title{
-Searching in the Dark
+\hspace{-0.75cm} Searching in the Dark
 \\
 Chasing Magnum Opus
 }
@@ -113,7 +126,7 @@ Rochester Institute of Technology % Your institution
 %%%%%%%%%%%%%%%%
 \input{sec_intro}
 
-%\FloatBarrier
+
 
 %%%%%%%%%%%%%%%%
 % QUESTION 1
@@ -126,7 +139,7 @@ Rochester Institute of Technology % Your institution
 \input{subsec_likelihood} % Q1.2, Chi
 \input{subsec_fitting} % Q1.3, Chi
 
-%\FloatBarrier
+
 
 
 %%%%%%%%%%%%%%%%
@@ -134,12 +147,16 @@ Rochester Institute of Technology % Your institution
 % Jake
 %%%%%%%%%%%%%%%%
 
-\section{Classifying GW Events with EM Countparts}
+\section{Classification}
 \label{sec:classifier}
 \input{sec_classification} % Jake
 
 
-%\FloatBarrier
+\section{Conclusions}
+\label{sec:conclusions}
+\input{sec_conclusions}
+
+
 
 
 \printbibliography
